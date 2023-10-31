@@ -1,0 +1,59 @@
+﻿@model sistemaFinanceiro.Models.CategoriaModel
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<h4>Editar Categoria</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="widget p-5">
+            <form asp-action="Edit" class="form-group">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CategoriaId" />
+                <div class="mb-3">
+                    <div class="mb-3">
+                        <div class='e-btn-group'>
+                            <input type="radio" id="radioleft" name="Tipo" value="Despesa" @(Model.Tipo == "Despesa" ? "checked" : "") />
+                            <label class="e-btn" for="radioleft">Despesa</label>
+                            <input type="radio" id="radiomiddle" name="Tipo" value="Renda" @(Model.Tipo == "Renda" ? "checked" : "") />
+                            <label class="e-btn" for="radiomiddle">Renda</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Nome" class="control-label"></label>
+                        <input asp-for="Nome" name="Nome" class="form-control" value="@Model.Nome" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Icone" class="control-label"></label>
+                        <input asp-for="Icone" name="Icone" class="form-control" value="@Model.Icone" />
+                        <span asp-validation-for="Icone" class="text-danger"></span>
+                    </div>
+
+                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" value="Salvar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

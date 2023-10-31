@@ -1,0 +1,56 @@
+﻿@model IEnumerable<sistemaFinanceiro.Models.CategoriaModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Painel de Categorias</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">+ Categorias</a>
+</p>
+<table id="Categoria" class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Icone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Icone)
+                    </td>
+                    <td>
+                        @if (item.Tipo == "Renda")
+                        {
+                            <span class="bg-success d-block rounded-2 text-center text-white">@item.Tipo</span>
+                        }
+                        else
+                        {
+                            <span class="bg-danger d-block rounded-2 text-center text-white">@item.Tipo</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.CategoriaId" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.CategoriaId" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
