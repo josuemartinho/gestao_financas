@@ -48,8 +48,8 @@ namespace sistemaFinanceiro.Controllers
         // GET: Transacao/Create
         public IActionResult Create()
         {
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId");
-            return View();
+ 
+            return View(new TransacaoModel());
         }
 
         // POST: Transacao/Create
@@ -65,7 +65,7 @@ namespace sistemaFinanceiro.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId", transacaoModel.CategoriaId);
+            PopulateCategories();
             return View(transacaoModel);
         }
 
@@ -82,7 +82,7 @@ namespace sistemaFinanceiro.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId", transacaoModel.CategoriaId);
+            PopulateCategories();
             return View(transacaoModel);
         }
 
@@ -118,7 +118,7 @@ namespace sistemaFinanceiro.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId", transacaoModel.CategoriaId);
+            PopulateCategories();
             return View(transacaoModel);
         }
 
@@ -163,6 +163,14 @@ namespace sistemaFinanceiro.Controllers
         private bool TransacaoModelExists(int id)
         {
           return (_context.Transacoes?.Any(e => e.TransacaoId == id)).GetValueOrDefault();
+        }
+        [NonAction]
+        public void PopulateCategories()
+        {
+            var CategoryCollection = _context.Categorias.ToList();
+            CategoriaModel DefaultCategory = new CategoriaModel() { CategoriaId = 0, Nome = "Escolha a Categoria:" };
+            CategoryCollection.Insert(0, DefaultCategory);
+            ViewBag.Categorias = CategoryCollection;
         }
     }
 }
