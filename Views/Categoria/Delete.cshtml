@@ -8,7 +8,6 @@
 
 <h3>Tens certeza que queres eliminar isto?</h3>
 <div>
-    <h4>CategoriaModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -33,7 +32,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="CategoriaId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Voltar</a>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-primary">Voltar</a>
     </form>
 </div>

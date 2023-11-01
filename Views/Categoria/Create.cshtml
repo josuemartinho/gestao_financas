@@ -14,11 +14,11 @@
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="mb-3">
-                    <div class='e-btn-group'>
-                        <input type="radio" id="radioleft" name="Tipo" value="Despesa" @(Model.Tipo == "Despesa" ? "checked" : "") />
-                        <label class="e-btn" for="radioleft">Despesa</label>
+                    <div class='e-btn-group mb-3'>
+                        <input class="" type="radio" id="radioleft" name="Tipo" value="Despesa" @(Model.Tipo == "Despesa" ? "checked" : "") />
+                        <label class=" e-btn bg-danger text-white p-2 rounded-2" for="radioleft">Despesa</label>
                         <input type="radio" id="radiomiddle" name="Tipo" value="Renda" @(Model.Tipo == "Renda" ? "checked" : "") />
-                        <label class="e-btn" for="radiomiddle">Renda</label>
+                        <label class="e-btn bg-success text-white p-2 rounded-2" for="radiomiddle">Renda</label>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Nome" class="control-label"></label>
