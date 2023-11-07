@@ -168,8 +168,6 @@ namespace sistemaFinanceiro.Controllers
         public void PopulateCategories()
         {
             var CategoryCollection = _context.Categorias.ToList();
-            CategoriaModel DefaultCategory = new CategoriaModel() { CategoriaId = 0, Nome = "Escolha a Categoria:" };
-            CategoryCollection.Insert(0, DefaultCategory);
             ViewBag.Categorias = CategoryCollection;
         }
     }
