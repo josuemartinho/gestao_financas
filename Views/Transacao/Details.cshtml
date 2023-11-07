@@ -7,14 +7,19 @@
 <h1>Details</h1>
 
 <div>
-    <h4>TransacaoModel</h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            ID
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Categoria.CategoriaId)
+        </dd>        
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Categoria)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categoria.CategoriaId)
+            @Html.DisplayFor(model => model.Categoria.IconeComNome)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Valor)

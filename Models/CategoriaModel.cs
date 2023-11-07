@@ -21,6 +21,10 @@ namespace sistemaFinanceiro.Models
             get
             {
                 return this.Icone + " " + this.Nome;
+                
+            }
+            set
+            { 
             }
         }
     }

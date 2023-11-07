@@ -13,18 +13,18 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Categoria)
+                @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Valor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descricao)
+                @Html.DisplayNameFor(model => model.Categoria)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Data)
             </th>
-            <th></th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -32,21 +32,22 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Valor)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FormatadoValor)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.IconeComNome)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Data)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.CategoriaId" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.TransacaoId" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                     <a asp-action="Details" asp-route-id="@item.TransacaoId" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                    <a asp-action="Delete" asp-route-id="@item.CategoriaId" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.TransacaoId" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
         }

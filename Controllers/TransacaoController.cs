@@ -48,7 +48,7 @@ namespace sistemaFinanceiro.Controllers
         // GET: Transacao/Create
         public IActionResult Create()
         {
- 
+            PopulateCategories();
             return View(new TransacaoModel());
         }
 
@@ -59,14 +59,9 @@ namespace sistemaFinanceiro.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("TransacaoId,CategoriaId,Valor,Descricao,Data")] TransacaoModel transacaoModel)
         {
-            if (ModelState.IsValid)
-            {
                 _context.Add(transacaoModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            PopulateCategories();
-            return View(transacaoModel);
         }
 
         // GET: Transacao/Edit/5
@@ -98,8 +93,7 @@ namespace sistemaFinanceiro.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+           
                 try
                 {
                     _context.Update(transacaoModel);
@@ -117,9 +111,6 @@ namespace sistemaFinanceiro.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            PopulateCategories();
-            return View(transacaoModel);
         }
 
         // GET: Transacao/Delete/5
@@ -168,6 +159,8 @@ namespace sistemaFinanceiro.Controllers
         public void PopulateCategories()
         {
             var CategoryCollection = _context.Categorias.ToList();
+            CategoriaModel DefaultCategory = new CategoriaModel() { CategoriaId = 0, Nome = "Escolha a Categoria" };
+            CategoryCollection.Insert(0, DefaultCategory);
             ViewBag.Categorias = CategoryCollection;
         }
     }
