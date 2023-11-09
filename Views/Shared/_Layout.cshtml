@@ -12,17 +12,19 @@
     <link rel="stylesheet" href="~/sistemaFinanceiro.styles.css" asp-append-version="true" />
 </head>
 <body>
+
     <header>
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary box-shadow mb-3">
             <div class="d-flex container-fluid">
-                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">Controle Financeiro</a>
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Dashboard" asp-action="Index">Controle Financeiro</a>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-house mx-2"></i>Home</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Dashboard" asp-action="Index"><i class="bi bi-house mx-2"></i>Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Transacao" asp-action="Index">Transações</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Transacao" asp-action="Index">Transaçoes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Categoria" asp-action="Index">Categorias</a>
@@ -31,7 +33,9 @@
                 </div>
             </div>
         </nav>
+
     </header>
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -41,12 +45,6 @@
             </div>
         </div>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Sistema Financeiro 
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Syncfusion ASP.NET Core controls scripts -->

@@ -14,6 +14,8 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 );
 var app = builder.Build();
 
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NHaF5cXmVCf1JpRGVGfV5yd0VPal5STnJYUiweQnxTdEZiWH9XcH1XRWRbUkB2Vg==\r\n");
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

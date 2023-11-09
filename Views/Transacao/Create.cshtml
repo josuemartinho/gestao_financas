@@ -3,14 +3,15 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Criar</h1>
+<h1 class="text-center mt-5">Criar</h1>
 
-<h4>Criar Transação</h4>
+<h4 class="text-center">Criar Transação</h4>
 <hr />
-<div class="row">
+
+<div class="row justify-content-center">
     <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="Create" class="mb-4 p-4 border rounded">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
             <div class="mb-3">
                 <label asp-for="CategoriaId" class="control-label">Categoria</label>
                 <select asp-for="CategoriaId" class="form-control" required>
@@ -24,17 +25,17 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label asp-for="Valor" class="control-label" ></label>
+                <label asp-for="Valor" class="control-label">Valor</label>
                 <input asp-for="Valor" class="form-control" required />
                 <span asp-validation-for="Valor" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control"/>
+                <label asp-for="Descricao" class="control-label">Descrição</label>
+                <input asp-for="Descricao" class="form-control" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label asp-for="Data" class="control-label"></label>
+                <label asp-for="Data" class="control-label">Data</label>
                 <input asp-for="Data" class="form-control" required />
                 <span asp-validation-for="Data" class="text-danger"></span>
             </div>
@@ -45,8 +46,8 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar</a>
+<div class="text-center">
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
 </div>
 
 @section Scripts {
